@@ -8,35 +8,68 @@ import { useState } from "react";
 // Image Slider Component
 function ImageSlider({ images, projectName }) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [failedImage, setFailedImage] = useState(null);
+
+  const currentImage = images[currentIndex];
 
   const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % images.length);
+    setCurrentIndex((prev) => {
+      const nextIndex = (prev + 1) % images.length;
+      setFailedImage(null);
+      return nextIndex;
+    });
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
+    setCurrentIndex((prev) => {
+      const nextIndex = (prev - 1 + images.length) % images.length;
+      setFailedImage(null);
+      return nextIndex;
+    });
+  };
+
+  const goToSlide = (index) => {
+    setFailedImage(null);
+    setCurrentIndex(index);
+  };
+
+  const openCurrentImage = () => {
+    window.open(currentImage, "_blank", "noopener,noreferrer");
+  };
+
+  const handleImageKeyDown = (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      openCurrentImage();
+    }
   };
 
   return (
-    <div className="hidden lg:block relative h-full rounded-2xl overflow-hidden bg-slate-900/50 border border-white/5 shadow-2xl">
-      <div className="relative w-full h-full min-h-[380px]">
-        {images.map((image, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 transition-opacity duration-700 ${
-              index === currentIndex ? "opacity-100 scale-100" : "opacity-0 scale-95"
-            }`}
+    <div className="relative w-full aspect-video min-h-[260px] lg:min-h-[380px] rounded-2xl overflow-hidden bg-slate-900/50 border border-white/5 shadow-2xl flex items-center justify-center p-4 sm:p-6">
+      <div className="flex h-full w-full items-center justify-center">
+        {failedImage === currentImage ? (
+          <div className="px-4 text-center text-sm text-slate-400">
+            Image failed to load: {currentImage}
+          </div>
+        ) : (
+          <button
+            type="button"
+            onClick={openCurrentImage}
+            onKeyDown={handleImageKeyDown}
+            className="relative h-full w-full cursor-pointer rounded-xl transition-transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-blue-500/50"
           >
             <Image
-              src={image}
-              alt={`${projectName} - ${index + 1}`}
+              key={currentImage}
+              src={currentImage}
+              alt={`${projectName} - ${currentIndex + 1}`}
               fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-              loading={index === 0 ? "eager" : "lazy"}
-              className="object-contain p-6"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              priority={currentIndex === 0}
+              onError={() => setFailedImage(currentImage)}
+              className="object-contain rounded-xl"
             />
-          </div>
-        ))}
+          </button>
+        )}
       </div>
 
       {/* Navigation Arrows */}
@@ -60,7 +93,7 @@ function ImageSlider({ images, projectName }) {
             {images.map((_, index) => (
               <button
                 key={index}
-                onClick={() => setCurrentIndex(index)}
+                onClick={() => goToSlide(index)}
                 className={`transition-all duration-300 rounded-full ${
                   index === currentIndex ? "bg-blue-500 w-6 h-2" : "bg-white/20 w-2 h-2"
                 }`}

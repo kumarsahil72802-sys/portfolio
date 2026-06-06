@@ -56,7 +56,7 @@ export default function About() {
                   alt="Sahil Kumar"
                   width={400}
                   height={400}
-                  className="w-72 h-72 sm:w-96 sm:h-96 rounded-[1.8rem] object-cover border-4 border-slate-900"
+                  className="w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-[1.8rem] object-cover border-4 border-slate-900"
                   priority
                 />
               </div>

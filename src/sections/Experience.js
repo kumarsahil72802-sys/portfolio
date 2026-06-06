@@ -145,7 +145,7 @@ export default function Experience() {
               </div>
 
               {/* Experience Card */}
-              <div className="md:ml-12 bg-white/5 backdrop-blur-xl rounded-3xl p-8 sm:p-10 border border-white/10 shadow-2xl hover:border-blue-500/30 transition-all duration-500 group">
+              <div className="md:ml-12 bg-white/5 backdrop-blur-xl rounded-3xl p-6 sm:p-10 border border-white/10 shadow-2xl hover:border-blue-500/30 transition-all duration-500 group">
                 {/* Header */}
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-8">
                   <div>
@@ -153,7 +153,7 @@ export default function Experience() {
                       <FiBriefcase className="w-4 h-4" />
                       <span>{exp.role.toUpperCase()}</span>
                     </div>
-                    <h3 className="text-3xl font-bold text-white group-hover:text-blue-400 transition-colors">
+                    <h3 className="text-2xl sm:text-3xl font-bold text-white group-hover:text-blue-400 transition-colors">
                       {exp.company}
                     </h3>
                   </div>
@@ -178,7 +178,7 @@ export default function Experience() {
                       className="flex items-start gap-4"
                     >
                       <span className="w-2 h-2 bg-purple-500 rounded-full mt-2.5 flex-shrink-0 shadow-[0_0_8px_rgba(168,85,247,0.6)]" />
-                      <span className="text-slate-300 leading-relaxed font-light text-lg">
+                      <span className="text-slate-300 leading-relaxed font-light text-base sm:text-lg">
                         {resp}
                       </span>
                     </motion.li>

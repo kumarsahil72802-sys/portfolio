@@ -50,7 +50,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-zinc-200">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/10">
       <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo / Name */}
@@ -59,10 +59,10 @@ export default function Navbar() {
             onClick={(e) => handleLinkClick(e, "#hero")}
             className="text-lg font-bold tracking-tight"
           >
-            <span className="bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
               Sahil
             </span>
-            <span className="bg-gradient-to-r from-blue-600 to-violet-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
               {" "}Kumar
             </span>
           </a>
@@ -76,8 +76,8 @@ export default function Navbar() {
                 onClick={(e) => handleLinkClick(e, link.href)}
                 className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
                   activeSection === link.href.replace("#", "")
-                    ? "text-zinc-900 bg-zinc-100"
-                    : "text-zinc-600 hover:text-zinc-900 hover:bg-zinc-50"
+                    ? "text-white bg-white/10"
+                    : "text-slate-300 hover:text-white hover:bg-white/5"
                 }`}
               >
                 {link.name}
@@ -88,7 +88,7 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-md text-zinc-600 hover:text-zinc-900 hover:bg-zinc-100 transition-colors"
+            className="md:hidden p-2 rounded-md text-slate-300 hover:text-white hover:bg-white/5 transition-colors"
             aria-label="Toggle menu"
           >
             <svg
@@ -118,8 +118,8 @@ export default function Navbar() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden py-2 border-t border-zinc-200">
-            <div className="flex flex-col gap-1">
+          <div className="md:hidden py-2 border-t border-white/10">
+            <div className="flex flex-col gap-1 pb-2">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
@@ -127,8 +127,8 @@ export default function Navbar() {
                   onClick={(e) => handleLinkClick(e, link.href)}
                   className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
                     activeSection === link.href.replace("#", "")
-                      ? "text-zinc-900 bg-zinc-100"
-                      : "text-zinc-600 hover:text-zinc-900 hover:bg-zinc-50"
+                      ? "text-white bg-white/10"
+                      : "text-slate-300 hover:text-white hover:bg-white/5"
                   }`}
                 >
                   {link.name}

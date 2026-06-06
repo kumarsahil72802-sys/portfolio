@@ -125,13 +125,13 @@ export default function Skills() {
                         scale: 1.05,
                         y: -5
                       }}
-                      className="group/badge relative flex items-center gap-3 px-5 py-3 bg-white/5 border border-white/10 rounded-xl cursor-default transition-all duration-300 hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.2)]"
+                      className="group/badge relative flex items-center gap-2 sm:gap-3 px-3 py-2 sm:px-5 sm:py-3 bg-white/5 border border-white/10 rounded-xl cursor-default transition-all duration-300 hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.2)]"
                     >
                       {/* Badge Glow */}
                       <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-xl opacity-0 group-hover/badge:opacity-100 transition-opacity" />
                       
-                      <Icon className={`relative z-10 w-6 h-6 ${skill.color} transition-transform group-hover/badge:rotate-12`} />
-                      <span className="relative z-10 text-sm font-semibold text-slate-300 group-hover/badge:text-white transition-colors">
+                      <Icon className={`relative z-10 w-5 h-5 sm:w-6 sm:h-6 ${skill.color} transition-transform group-hover/badge:rotate-12`} />
+                      <span className="relative z-10 text-xs sm:text-sm font-semibold text-slate-300 group-hover/badge:text-white transition-colors">
                         {skill.name}
                       </span>
                     </motion.div>

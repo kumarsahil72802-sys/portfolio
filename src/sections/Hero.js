@@ -130,7 +130,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
-              className="relative text-6xl sm:text-7xl md:text-8xl font-bold tracking-tight text-white"
+              className="relative text-4xl sm:text-7xl md:text-8xl font-bold tracking-tight text-white"
             >
               Sahil Kumar
             </motion.h1>
@@ -141,7 +141,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
-            className="text-2xl sm:text-3xl md:text-4xl font-semibold text-slate-300 mb-8"
+            className="text-xl sm:text-3xl md:text-4xl font-semibold text-slate-300 mb-8"
           >
             I am a <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
               <Typewriter text="Full Stack Developer" />
@@ -153,7 +153,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7 }}
-            className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed font-light"
+            className="text-base md:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed font-light px-4 sm:px-0"
           >
             Crafting immersive digital experiences with modern web technologies. Focus on performance, scalability, and user-centric design.
           </motion.p>
